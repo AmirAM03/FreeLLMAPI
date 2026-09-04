@@ -1,0 +1,50 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="1200" height="220" viewBox="0 0 1200 220" role="img" aria-label="FreeLLMAPI — every free LLM API provider, curated, compared and verified daily">
+  <defs>
+    <linearGradient id="bg" x1="0" y1="0" x2="1" y2="1">
+      <stop offset="0" stop-color="#0D1117"/>
+      <stop offset="1" stop-color="#161B22"/>
+    </linearGradient>
+    <linearGradient id="accent" x1="0" y1="0" x2="1" y2="1">
+      <stop offset="0" stop-color="#A78BFA"/>
+      <stop offset="1" stop-color="#22D3EE"/>
+    </linearGradient>
+  </defs>
+
+  <rect x="0" y="0" width="1200" height="220" rx="20" fill="url(#bg)"/>
+
+  <!-- Terminal window icon -->
+  <g>
+    <rect x="56" y="52" width="150" height="118" rx="12" fill="#161B22" stroke="#30363D" stroke-width="1.5"/>
+    <circle cx="78" cy="74" r="5" fill="#FF5F57"/>
+    <circle cx="98" cy="74" r="5" fill="#FEBC2E"/>
+    <circle cx="118" cy="74" r="5" fill="#28C840"/>
+    <rect x="74" y="96" width="8" height="8" rx="1.5" fill="#A78BFA"/>
+    <rect x="90" y="96" width="56" height="8" rx="4" fill="#3D4450"/>
+    <rect x="74" y="116" width="8" height="8" rx="1.5" fill="#22D3EE"/>
+    <rect x="90" y="116" width="72" height="8" rx="4" fill="#3D4450"/>
+    <rect x="74" y="136" width="40" height="8" rx="4" fill="#2EA043"/>
+    <rect x="122" y="136" width="48" height="8" rx="4" fill="#3D4450"/>
+  </g>
+
+  <!-- Title -->
+  <text x="242" y="104" font-family="'Segoe UI','Helvetica Neue',Arial,sans-serif" font-size="56" font-weight="700" fill="#F2F7FC">FreeLLMAPI</text>
+  <rect x="244" y="120" width="330" height="5" rx="2.5" fill="url(#accent)"/>
+
+  <!-- Subtitle -->
+  <text x="242" y="152" font-family="'Segoe UI','Helvetica Neue',Arial,sans-serif" font-size="19" fill="#9BA8B7">Every free LLM API provider. Curated, compared &amp; verified daily.</text>
+
+  <!-- Chips -->
+  <g font-family="'Segoe UI','Helvetica Neue',Arial,sans-serif" font-size="15" letter-spacing="0.3" text-anchor="middle">
+    <rect x="242" y="166" width="150" height="30" rx="9" fill="#A78BFA" fill-opacity="0.10" stroke="#A78BFA" stroke-opacity="0.35" stroke-width="1"/>
+    <text x="317" y="186" fill="#D7E1EA">10+ PROVIDERS</text>
+
+    <rect x="406" y="166" width="200" height="30" rx="9" fill="#A78BFA" fill-opacity="0.10" stroke="#A78BFA" stroke-opacity="0.35" stroke-width="1"/>
+    <text x="506" y="186" fill="#D7E1EA">OPENAI-COMPATIBLE</text>
+
+    <rect x="620" y="166" width="175" height="30" rx="9" fill="#A78BFA" fill-opacity="0.10" stroke="#A78BFA" stroke-opacity="0.35" stroke-width="1"/>
+    <text x="707" y="186" fill="#D7E1EA">DAILY VERIFIED</text>
+
+    <rect x="809" y="166" width="130" height="30" rx="9" fill="#A78BFA" fill-opacity="0.10" stroke="#A78BFA" stroke-opacity="0.35" stroke-width="1"/>
+    <text x="874" y="186" fill="#D7E1EA">100% FREE</text>
+  </g>
+</svg>

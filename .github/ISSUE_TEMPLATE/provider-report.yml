@@ -1,0 +1,50 @@
+name: Provider report
+description: Report a dead provider, changed limits, or suggest a new one
+title: "[provider] "
+labels: ["provider"]
+body:
+  - type: dropdown
+    id: type
+    attributes:
+      label: Report type
+      options:
+        - 🟢 New provider suggestion
+        - 🔴 Provider is dead / gone
+        - ⚠️ Rate limits or free tier changed
+        - 📝 Docs / links outdated
+        - Other
+    validations:
+      required: true
+
+  - type: input
+    id: provider
+    attributes:
+      label: Provider name
+      placeholder: e.g. Groq
+    validations:
+      required: true
+
+  - type: input
+    id: url
+    attributes:
+      label: Provider URL
+      placeholder: https://...
+    validations:
+      required: false
+
+  - type: textarea
+    id: details
+    attributes:
+      label: Details
+      description: What changed? What are the new limits? Why is it free?
+      placeholder: Describe the details here...
+    validations:
+      required: true
+
+  - type: checkboxes
+    id: free
+    attributes:
+      label: Free-tier criteria (for new suggestions)
+      options:
+        - label: Has a genuinely free tier (no expiry, no credit card required)
+          required: false

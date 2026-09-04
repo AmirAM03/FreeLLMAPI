@@ -1,0 +1,43 @@
+name: Daily verify & regenerate
+
+on:
+  schedule:
+    - cron: "0 6 * * *" # every day 06:00 UTC
+  workflow_dispatch: {}
+
+permissions:
+  contents: write
+
+jobs:
+  verify:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+
+      - uses: actions/setup-python@v5
+        with:
+          python-version: "3.12"
+
+      - name: Regenerate provider pages & README table
+        run: python scripts/build.py
+
+      - name: Validate JSON against schema (basic)
+        run: |
+          python - <<'EOF'
+          import json
+          d = json.load(open("data/providers.json", encoding="utf-8"))
+          assert d["providers"], "providers list is empty"
+          for p in d["providers"]:
+              for field in ("id", "name", "api_base", "docs", "free_tier", "models"):
+                  assert p.get(field), f"{p.get('id')} missing {field}"
+          print(f"OK: {len(d['providers'])} providers validated")
+          EOF
+
+      - name: Commit drift (if any)
+        run: |
+          git config user.name "freellmapi-bot"
+          git config user.email "actions@github.com"
+          git add -A
+          git diff --cached --quiet && echo "No changes" && exit 0
+          git commit -m "chore: daily regenerate [bot]"
+          git push

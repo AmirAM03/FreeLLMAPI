@@ -1,0 +1,53 @@
+{
+  "$schema": "http://json-schema.org/draft-07/schema#",
+  "title": "FreeLLMAPI providers schema",
+  "type": "object",
+  "required": ["last_updated", "providers"],
+  "properties": {
+    "last_updated": { "type": "string", "format": "date" },
+    "data_source": { "type": "string" },
+    "providers": {
+      "type": "array",
+      "items": { "$ref": "#/definitions/provider" }
+    }
+  },
+  "definitions": {
+    "provider": {
+      "type": "object",
+      "required": ["id", "name", "category", "status", "openai_compatible", "auth", "api_base", "docs", "website", "signup", "free_tier", "rate_limits", "models", "highlights", "verified", "last_verified"],
+      "properties": {
+        "id": { "type": "string", "pattern": "^[a-z0-9-]+$", "description": "URL slug, e.g. 'openrouter'" },
+        "name": { "type": "string" },
+        "category": { "enum": ["hosted-inference", "model-router", "cloud-platform", "edge-serverless", "other"] },
+        "category_label": { "type": "string" },
+        "status": { "enum": ["verified", "unverified", "deprecated", "dead"] },
+        "openai_compatible": { "type": "boolean" },
+        "auth": { "enum": ["api-key", "oauth", "none", "custom"] },
+        "api_base": { "type": "string" },
+        "docs": { "type": "string" },
+        "website": { "type": "string" },
+        "signup": { "type": "string" },
+        "playground": { "type": "string" },
+        "aistudio": { "type": "string" },
+        "free_tier": { "type": "string" },
+        "rate_limits": { "type": "string" },
+        "models": {
+          "type": "array",
+          "items": {
+            "type": "object",
+            "required": ["id", "context"],
+            "properties": {
+              "id": { "type": "string" },
+              "context": { "type": ["string", "integer"] },
+              "notes": { "type": "string" }
+            }
+          }
+        },
+        "highlights": { "type": "array", "items": { "type": "string" } },
+        "verified": { "type": "string", "format": "date" },
+        "last_verified": { "type": "string", "format": "date" },
+        "no_excuse": { "type": "string" }
+      }
+    }
+  }
+}

@@ -1,0 +1,127 @@
+{
+  "$schema": "https://raw.githubusercontent.com/AmirAM03/FreeLLMAPI/main/data/schema.json",
+  "last_updated": "2025-09-05",
+  "data_source": "Curated & verified by the FreeLLMAPI community — verify keys before production use.",
+  "providers": [
+    {
+      "id": "openrouter",
+      "name": "OpenRouter",
+      "category": "model-router",
+      "category_label": "Model Router",
+      "status": "verified",
+      "openai_compatible": true,
+      "auth": "api-key",
+      "api_base": "https://openrouter.ai/api/v1",
+      "docs": "https://openrouter.ai/docs",
+      "website": "https://openrouter.ai",
+      "signup": "https://openrouter.ai",
+      "playground": "https://openrouter.ai/chat",
+      "free_tier": "Free models tagged ':free' — generous daily limits, no credit card required.",
+      "rate_limits": ":free models — 20 req/min, 50 req/day (or 1000 req/day with $10+ credit balance).",
+      "models": [
+        { "id": "meta-llama/llama-3.3-70b-instruct:free", "context": "131072", "notes": "Flagship open model, strong all-rounder" },
+        { "id": "google/gemini-2.0-flash-exp:free", "context": "1048576", "notes": "Experimental Gemini Flash, 1M context" },
+        { "id": "deepseek/deepseek-r1:free", "context": "163840", "notes": "Reasoning model" },
+        { "id": "qwen/qwen-2.5-72b-instruct:free", "context": "32768", "notes": "Multilingual workhorse" },
+        { "id": "mistralai/mistral-7b-instruct:free", "context": "32768", "notes": "Fast & lightweight" }
+      ],
+      "highlights": [
+        "Unified API for 300+ models — swap models by changing the `model` string",
+        "Automatic fallback across providers if one is down",
+        "Free tier does not expire; some limits lift with $10 credit"
+      ],
+      "verified": "2025-09-05",
+      "last_verified": "2025-09-01"
+    },
+    {
+      "id": "groq",
+      "name": "Groq",
+      "category": "hosted-inference",
+      "category_label": "Hosted Inference",
+      "status": "verified",
+      "openai_compatible": true,
+      "auth": "api-key",
+      "api_base": "https://api.groq.com/openai/v1",
+      "docs": "https://console.groq.com/docs/openai",
+      "website": "https://groq.com",
+      "signup": "https://console.groq.com",
+      "playground": "https://console.groq.com/playground",
+      "free_tier": "Free developer tier with generous limits for building and testing.",
+      "rate_limits": "Model-dependent — e.g. llama-3.3-70b-versatile: 30 req/min, 12,000 tokens/min, 1,000 req/day.",
+      "models": [
+        { "id": "llama-3.3-70b-versatile", "context": "131072", "notes": "Flagship open model, high throughput" },
+        { "id": "llama-3.1-8b-instant", "context": "131072", "notes": "Sub-second latency workhorse" },
+        { "id": "openai/gpt-oss-120b", "context": "131072", "notes": "OpenAI's open-weight model, LPU-fast" },
+        { "id": "qwen/qwen3-32b", "context": "131072", "notes": "Strong multilingual + reasoning" },
+        { "id": "deepseek-r1-distill-llama-70b", "context": "131072", "notes": "Distilled reasoning, streaming thinking tokens" }
+      ],
+      "highlights": [
+        "LPU inference — hundreds of tokens/sec, fastest free API available",
+        "Full OpenAI SDK compatibility (base_url swap only)",
+        "No credit card, no expiry; JIT provisioning per model"
+      ],
+      "verified": "2025-09-05",
+      "last_verified": "2025-09-01"
+    },
+    {
+      "id": "google-ai-studio",
+      "name": "Google AI Studio",
+      "category": "cloud-platform",
+      "category_label": "Cloud Platform",
+      "status": "verified",
+      "openai_compatible": true,
+      "auth": "api-key",
+      "api_base": "https://generativelanguage.googleapis.com/v1beta",
+      "docs": "https://ai.google.dev/gemini-api/docs",
+      "website": "https://ai.google.dev",
+      "aistudio": "https://aistudio.google.com",
+      "signup": "https://aistudio.google.com",
+      "playground": "https://aistudio.google.com",
+      "free_tier": "Free tier available in most regions (billing enabled for overages).",
+      "rate_limits": "Gemini 2.5 Pro: 5 RPM / 100 RPD (paid tier) — free tier for 2.5 Flash: 10 RPM / 250 RPD; 1.5 Flash: 15 RPM / 1,500 RPD; 1.5 Flash-8B: 15 RPM / 1,500 RPD.",
+      "models": [
+        { "id": "gemini-2.5-flash", "context": "1048576", "notes": "Best price-performance with adaptive thinking" },
+        { "id": "gemini-2.5-pro", "context": "1048576", "notes": "Top reasoning quality" },
+        { "id": "gemini-2.0-flash", "context": "1048576", "notes": "Efficient multimodal workhorse" },
+        { "id": "gemini-2.0-flash-lite", "context": "1048576", "notes": "Cheapest, fastest Flash variant" },
+        { "id": "gemini-1.5-flash-8b", "context": "1048576", "notes": "High-RPM free workhorse (1,500 req/day)" }
+      ],
+      "highlights": [
+        "Native multimodal — text, images, video, audio, PDFs in one call",
+        "OpenAI-compatible endpoint available (`/v1beta/openai/`)",
+        "1M-token context windows"
+      ],
+      "verified": "2025-09-05",
+      "last_verified": "2025-09-01"
+    },
+    {
+      "id": "cloudflare-workers-ai",
+      "name": "Cloudflare Workers AI",
+      "category": "edge-serverless",
+      "category_label": "Edge / Serverless",
+      "status": "verified",
+      "openai_compatible": true,
+      "auth": "api-key",
+      "api_base": "https://api.cloudflare.com/client/v4/accounts/{ACCOUNT_ID}/ai/v1",
+      "docs": "https://developers.cloudflare.com/workers-ai/",
+      "website": "https://developers.cloudflare.com/workers-ai/",
+      "signup": "https://dash.cloudflare.com",
+      "playground": "https://playground.cloudflare.com",
+      "free_tier": "10,000 neurons/day per account, free forever.",
+      "rate_limits": "10,000 neurons/day; no hard RPM cap published.",
+      "models": [
+        { "id": "@cf/meta/llama-3.3-70b-instruct-fp8-fast", "context": "16384", "notes": "Largest open model on the edge, FP8-fast" },
+        { "id": "@cf/meta/llama-3.1-8b-instruct", "context": "128000", "notes": "Fast general-purpose" },
+        { "id": "@cf/qwen/qwen2.5-coder-32b-instruct", "context": "16384", "notes": "Code completion & chat" },
+        { "id": "@cf/mistralai/mistral-small-3.1-24b-instruct", "context": "131072", "notes": "Multimodal + function calling" }
+      ],
+      "highlights": [
+        "Inference at the edge — runs in 300+ cities near your users",
+        "OpenAI-compatible REST adapters for chat/embeddings",
+        "Neurons-based free allocation resets daily"
+      ],
+      "verified": "2025-09-05",
+      "last_verified": "2025-09-01"
+    }
+  ]
+}
